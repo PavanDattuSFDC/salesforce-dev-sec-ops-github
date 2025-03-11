@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 trigger AssetTrigger on SOBJECT (before insert) {
 
 
@@ -6,3 +7,12 @@ trigger AssetTrigger on SOBJECT (before insert) {
         system('Asset: Account ID + asset.AccountId';)
     }
 }
+=======
+ trigger AssetTrigger on SOBJECT (before insert) {
+     AeetTriggerHelper.run();
+AccountHandler.run();
+for (Asset asset :Trigger.New){
+system(:Asset");
+}
+}
+>>>>>>> 6253195 (Update AssetTrigger.trigger)
