@@ -1,0 +1,19 @@
+name: Github Actions Demo
+run-name: Pavan is running github actions
+## Pipleine will be running mainly 2 events most of time
+## push, pull_request
+on: [push, pull_request]
+
+jobs:
+  build-and-deploy: ## Name of the job
+    runs-on: ubuntu-latest ## Github Hosted [Self Hosted]
+    ##Example - Develop an Apex trigger to count the total no of contacts under an account
+    ##Example#2 - Deploy all the apex triggers and classes developed as part of US-8834
+    steps:
+      - run: echo "this is my first job"
+        name: "First Job Message"
+  clean-up:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "this is my second job"
+        name: "Print Message"
