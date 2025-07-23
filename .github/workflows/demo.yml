@@ -1,0 +1,26 @@
+name: Github Actions Demo
+run-name: ${{ github.actor}} is running github actions
+## Pipleine will be running mainly 2 events most of time
+## push, pull_request
+on: [push, pull_request]
+
+jobs:
+  build-and-deploy: ## Name of the job
+    runs-on: ubuntu-latest ## Github Hosted [Self Hosted]
+    ##Example - Develop an Apex trigger to count the total no of contacts under an account
+    ##Example#2 - Deploy all the apex triggers and classes developed as part of US-8834
+    steps:
+      - run: echo "this is my first job"
+        name: "First Job Message"
+      - name: Checkout Code
+        uses: actions/checkout@v4.1.7
+        with:
+           fetch-depth: 0
+      - name: Install Node dependencies      
+        run: npm install --legacy-peer-deps
+
+  clean-up:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "this is my second job"
+        name: "Print Message"
